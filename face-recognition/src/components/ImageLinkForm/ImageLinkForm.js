@@ -1,8 +1,19 @@
 import React from 'react';
+import "./ImageLinkForm.css"
 
 const ImageLinkForm = () => {
     return(
-        <h1>I am image place</h1>
+        <div>
+            <p className='f3'>
+                {"Let's detect faces from pictures yeah?"}
+            </p>
+            <div className='center'>
+                <div className= 'form center pa4 br3 shadow-5'>
+                <input className='f4 pa2 w-70 center' type='text'/>
+                <button className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple'>Find the Faces!</button>
+                </div>
+            </div>
+        </div>
     )
 }
 
