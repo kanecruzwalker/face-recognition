@@ -8,7 +8,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 
-const app = new Clarifai.App({apiKey: '95d1e072cc6844acb57382cdd12dbe35'});
+const app = new Clarifai.App({apiKey: ''});
 
 const particlesOptions = {
   particles: {
