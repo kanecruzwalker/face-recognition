@@ -23,6 +23,7 @@ const particlesOptions = {
 }
 
 
+
 class App extends Component {
 
   constructor(){
@@ -30,7 +31,12 @@ class App extends Component {
     this.state = {
       input : '',
       imageUrl : '',
+      box : {},
     }
+  }
+
+  calculateFaceLocation = (data) => {
+    console.log(data.outputs[0].data.regions[0].region_info.bounding_box);
   }
 
   onInputChange = (event) => {
@@ -42,15 +48,9 @@ class App extends Component {
     this.setState({imageUrl : this.state.input})
     
     // Predict the contents of an image by passing in a URL.
-    app.models.predict("a403429f2ddf4b49b307e318f00e528b", this.state.input).then(
-      function(response) {
-        console.log(response);
-        console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
-      },
-      function(err) {
-        console.log(err);
-      }
-    );
+    app.models.predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
+      .then(response => this.calculateFaceLocation(response))
+      .catch(err => console.log(err));
   }
 
   render(){
