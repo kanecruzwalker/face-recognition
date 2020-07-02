@@ -8,7 +8,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 
-const app = new Clarifai.App({apiKey: ''});
+const app = new Clarifai.App({apiKey: '95d1e072cc6844acb57382cdd12dbe35'});
 
 const particlesOptions = {
   particles: {
@@ -42,13 +42,15 @@ class App extends Component {
     this.setState({imageUrl : this.state.input})
     
     // Predict the contents of an image by passing in a URL.
-    app.models.predict(Clarifai.GENERAL_MODEL, this.state.input)
-      .then(response => {
+    app.models.predict("a403429f2ddf4b49b307e318f00e528b", this.state.input).then(
+      function(response) {
         console.log(response);
-      })
-      .catch(err => {
+        console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+      },
+      function(err) {
         console.log(err);
-      });
+      }
+    );
   }
 
   render(){
