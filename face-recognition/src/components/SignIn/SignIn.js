@@ -18,6 +18,11 @@ class SignIn extends Component {
     this.setState({ signInPassword : event.target.value})
   }
 
+  onSubmitSignIn = () => {
+    console.log(this.state);
+    this.props.onRouteChange('home')
+  }
+
   render(){
     const { onRouteChange } = this.props;
     return (
@@ -35,6 +40,7 @@ class SignIn extends Component {
                   type="email"
                   name="email-address"
                   id="email-address"
+                  onChange={this.onEmailChange}
                 />
               </div>
               <div className="mv3">
@@ -46,12 +52,13 @@ class SignIn extends Component {
                   type="password"
                   name="password"
                   id="password"
+                  onChange={this.onPasswordChange}
                 />
               </div>
             </fieldset>
             <div className="">
               <input
-                onClick={()=>onRouteChange('home')}
+                onClick={this.onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"
