@@ -2,15 +2,21 @@ import React, {Component} from "react";
 
 class SignIn extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       signInEmail: '',
       signInPassword: ''
     }
   }
 
+  onEmailChange = (event) => {
+    this.setState({signInEmail: event.target.value})
+  }
 
+  onPasswordChange = (event) => {
+    this.setState({ signInPassword : event.target.value})
+  }
 
   render(){
     const { onRouteChange } = this.props;
