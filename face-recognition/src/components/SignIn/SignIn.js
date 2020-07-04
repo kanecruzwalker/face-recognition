@@ -1,6 +1,17 @@
 import React, {Component} from "react";
 
 class SignIn extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      signInEmail: '',
+      signInPassword: ''
+    }
+  }
+
+
+
   render(){
     const { onRouteChange } = this.props;
     return (
