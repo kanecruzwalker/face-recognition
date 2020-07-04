@@ -10,7 +10,7 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 import SignIn from "./components/SignIn/SignIn"
 import Register from "./components/Register/Register"
 
-const app = new Clarifai.App({apiKey: ''});
+const app = new Clarifai.App({apiKey: '95d1e072cc6844acb57382cdd12dbe35'});
 
 const particlesOptions = {
   particles: {
@@ -38,6 +38,13 @@ class App extends Component {
       isSignedIn: false,
     }
   }
+
+  componentDidMount () {
+    fetch('http://localhost:3000/')
+    .then(response => response.json())
+    .then(console.log);
+  }
+
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box
